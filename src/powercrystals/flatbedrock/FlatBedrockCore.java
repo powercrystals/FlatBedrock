@@ -5,7 +5,7 @@ import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = FlatBedrockCore.modId, version = FlatBedrockCore.version, name = "Power Spawners")
+@Mod(modid = FlatBedrockCore.modId, version = FlatBedrockCore.version, name = "FlatBedrock")
 public class FlatBedrockCore
 {
 	public static final String modId = "FlatBedrock";
