@@ -9,11 +9,11 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
-@Mod(modid = FlatBedrockCore.modId, version = FlatBedrockCore.version, name = FlatBedrockCore.modName)
+@Mod(modid = FlatBedrockCore.modId, version = FlatBedrockCore.version, name = FlatBedrockCore.modName, dependencies = "required-after:PowerCrystalsCore")
 public class FlatBedrockCore implements IUpdateableMod
 {
 	public static final String modId = "FlatBedrock";
-	public static final String version = "1.4.6R1.0.1";
+	public static final String version = "1.4.6R1.0.2";
 	public static final String modName = "FlatBedrock";
 	
 	private static FlatBedrockCore _instance;
