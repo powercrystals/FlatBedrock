@@ -13,7 +13,7 @@ import cpw.mods.fml.relauncher.Side;
 public class FlatBedrockCore implements IUpdateableMod
 {
 	public static final String modId = "FlatBedrock";
-	public static final String version = "1.4.6R1.0.2";
+	public static final String version = "1.4.6R1.0.3";
 	public static final String modName = "FlatBedrock";
 	
 	private static FlatBedrockCore _instance;
