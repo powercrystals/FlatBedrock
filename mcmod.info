@@ -1,0 +1,21 @@
+[
+{
+  "modid": "FlatBedrock",
+  "name": "FlatBedrock",
+  "description": "Bedrock is flatter now",
+  "version": "1.0.3",
+  "mcversion": "1.4.6",
+  "url": "http://www.minecraftforum.net/topic/1629898-",
+  "updateUrl": "",
+  "authors": [
+    "PowerCrystals"
+  ],
+  "credits": "PowerCrystals",
+  "logoFile": "",
+  "screenshots": [
+  ],
+  "parent":"",
+  "dependencies": [
+  ]
+}
+]
