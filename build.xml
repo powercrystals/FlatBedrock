@@ -36,8 +36,8 @@
 	
 	<condition property="have-apis">
 		<and>
-			<available file="${download.dir}/PowerCrystalsCore-master.zip"/>
-			<available file="${download.dir}/BuildCraft-master.zip"/>
+			<available file="${mcpsrc.dir}/powercrystals/core" type="dir"/>
+			<available file="${mcpsrc.dir}/buildcraft" type="dir"/>
 		</and>
 	</condition>
 	
