@@ -87,7 +87,7 @@
 		<delete dir="${mcp.dir}/reobf"/>
 	</target>
 
-	<target name="build" depends="get-version" unless="already-compiled">
+	<target name="build" depends="get-dependencies" unless="already-compiled">
 		<!-- Copy source -->
 		<mkdir dir="${mcpsrc.dir}/powercrystals" />
 		<copy todir="${mcpsrc.dir}/powercrystals" overwrite="true">
