@@ -49,7 +49,7 @@
 		<get src="https://github.com/powercrystals/PowerCrystalsCore/archive/master.zip" dest="${download.dir}/PowerCrystalsCore-master.zip"/>
 	</target>
 	
-	<target name="extract-dependencies" depends="setup-forge,get-dependencies">
+	<target name="extract-dependencies" depends="get-dependencies">
 		<echo message="Extracting PowerCrystalsCore... " />
 		<unzip src="${download.dir}/PowerCrystalsCore-master.zip" dest="${download.dir}"/>
 		<move file="${download.dir}/PowerCrystalsCore-master/src/powercrystals/core" todir="${mcpsrc.dir}/powercrystals/"/>
