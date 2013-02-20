@@ -1,12 +1,13 @@
 package powercrystals.flatbedrock;
 
+import net.minecraftforge.common.Configuration;
+import net.minecraftforge.common.Property;
 import powercrystals.core.updater.IUpdateableMod;
 import powercrystals.core.updater.UpdateManager;
 import cpw.mods.fml.common.Mod;
-import net.minecraftforge.Configuration;
-import net.minecraftforge.Property;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -15,9 +16,9 @@ import cpw.mods.fml.relauncher.Side;
 public class FlatBedrockCore implements IUpdateableMod
 {
 	public static final String modId = "FlatBedrock";
-	public static final String version = "1.4.6R1.0.3";
+	public static final String version = "1.4.6R1.0.4B1";
 	public static final String modName = "FlatBedrock";
-	public static bool reallyGenerate = false;
+	public static boolean doFlatten = false;
 	
 	private static FlatBedrockCore _instance;
 	
@@ -33,7 +34,7 @@ public class FlatBedrockCore implements IUpdateableMod
 		config.load();
 		Property doGenerate;
 		doGenerate = config.get("WorldGen","reallyFlattenBedrock",true);
-		reallyGenerate = doGenerate.getBool();		
+		doFlatten = doGenerate.getBoolean(true);		
 	}
 	
 	@Init
@@ -41,11 +42,9 @@ public class FlatBedrockCore implements IUpdateableMod
 	{
 		_instance = this;
 		
-		if(reallyGenerate)
+		if(doFlatten)
 		{
-		
-		GameRegistry.registerWorldGenerator(new FlatBedrockWorldGen());
-		
+			GameRegistry.registerWorldGenerator(new FlatBedrockWorldGen());
 		}
 		
 		TickRegistry.registerScheduledTickHandler(new UpdateManager(this), Side.CLIENT);
