@@ -46,9 +46,9 @@ public class FlatBedrockCore implements IUpdateableMod
 		
 		GameRegistry.registerWorldGenerator(new FlatBedrockWorldGen());
 		
-		TickRegistry.registerScheduledTickHandler(new UpdateManager(this), Side.CLIENT);
-		
 		}
+		
+		TickRegistry.registerScheduledTickHandler(new UpdateManager(this), Side.CLIENT);
 	}
 
 	@Override
