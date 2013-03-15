@@ -26,7 +26,7 @@ public class FlatBedrockWorldGen implements IWorldGenerator
 					{
 						if(world.getBlockId(chunkX * 16 + blockX, blockY, chunkZ * 16 + blockZ) == Block.bedrock.blockID)
 						{
-							world.setBlock(chunkX * 16 + blockX, blockY, chunkZ * 16 + blockZ, Block.netherrack.blockID);
+							world.setBlockAndMetadataWithNotify(chunkX * 16 + blockX, blockY, chunkZ * 16 + blockZ, Block.netherrack.blockID, 0, 2);
 						}
 					}
 				}
@@ -37,11 +37,11 @@ public class FlatBedrockWorldGen implements IWorldGenerator
 					{
 						if(isNether)
 						{
-							world.setBlock(chunkX * 16 + blockX, blockY, chunkZ * 16 + blockZ, Block.netherrack.blockID);
+							world.setBlockAndMetadataWithNotify(chunkX * 16 + blockX, blockY, chunkZ * 16 + blockZ, Block.netherrack.blockID, 0, 2);
 						}
 						else
 						{
-							world.setBlock(chunkX * 16 + blockX, blockY, chunkZ * 16 + blockZ, Block.stone.blockID);
+							world.setBlockAndMetadataWithNotify(chunkX * 16 + blockX, blockY, chunkZ * 16 + blockZ, Block.stone.blockID, 0, 2);
 						}
 					}
 				}

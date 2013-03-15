@@ -162,14 +162,15 @@ pip-log.txt
 # Mac crap
 .DS_Store
 
-############
+###########
 
+downloads
 release
 releaseextra
 releasetemp
 releaseapi
 bugs.txt
-plants.xlsx
 build.bat
 screenshots
 *.tps
+MANIFEST.MF
