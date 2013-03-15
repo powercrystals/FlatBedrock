@@ -45,14 +45,12 @@
 		<echo message="Downloading BuildCraft API..." />
 		<get src="https://github.com/BuildCraft/BuildCraft/archive/master.zip" dest="${download.dir}/BuildCraft-master.zip"/>
 		
-		<echo message="Downloading PowerCrystalsCore... " />
-		<get src="https://github.com/powercrystals/PowerCrystalsCore/archive/master.zip" dest="${download.dir}/PowerCrystalsCore-master.zip"/>
 	</target>
 	
-	<target name="extract-dependencies" depends="get-dependencies,setup-forge">
-		<echo message="Extracting PowerCrystalsCore... " />
-		<unzip src="${download.dir}/PowerCrystalsCore-master.zip" dest="${download.dir}"/>
-		<copy file="${download.dir}/PowerCrystalsCore-master/src/powercrystals/core" todir="${mcpsrc.dir}/powercrystals/"/>
+	<target name="extract-dependencies" depends="setup-forge,get-dependencies">
+		<copy todir="${mcpsrc.dir}/powercrystals/core">
+			<fileset dir="${download.dir}/PowerCrystalsCore-master/src/powercrystals/core" />
+		</copy>
 		
 		<echo message="Extracting BuildCraft API..." />
 		<unzip src="${download.dir}/BuildCraft-master.zip" dest="${download.dir}"/>
@@ -83,6 +81,7 @@
 			<arg value="${grep.out}" />
 		</exec>
 		<echo message="Grepped version: ${grep.out}"/>
+		<echo message="versionscript.py returned: ${python.out}"/>
 	</target>
 
 	<available property="forge-exists" file="${download.dir}/minecraftforge-src-${forge.version}.zip" />
@@ -138,7 +137,7 @@
 		<property name="build.number" value="CUSTOM_BUILD" />
 	</target>
 
-	<target name="setup-forge" depends="download-forge,build-number-there,build-number-not-there" unless="forge.already.installed">
+	<target name="setup-forge" depends="download-core,download-forge,build-number-there,build-number-not-there" unless="forge.already.installed">
 
 		<property name="build.full" value="${build.number}" />
 		<unzip dest="${build.dir}">
@@ -196,6 +195,14 @@
 		</getMethod>
 	</target>
 
+	<target name="download-core" unless="forge-exists">
+		<echo message="Downloading PowerCrystalsCore... " />
+		<get src="https://github.com/powercrystals/PowerCrystalsCore/archive/master.zip" dest="${download.dir}/PowerCrystalsCore-master.zip"/>
+		
+		<echo message="Extracting PowerCrystalsCore... " />
+		<unzip src="${download.dir}/PowerCrystalsCore-master.zip" dest="${download.dir}"/>
+	</target>
+	
 	<target name="download-ant-contrib" unless="should-download-ant-contrib">
 		<echo message="Getting: ant-contrib"/>
 		<mkdir dir="${download.dir}/tmp"/>
