@@ -2,6 +2,7 @@ package powercrystals.flatbedrock;
 
 import net.minecraftforge.common.Configuration;
 import net.minecraftforge.common.Property;
+import powercrystals.core.mod.BaseMod;
 import powercrystals.core.updater.IUpdateableMod;
 import powercrystals.core.updater.UpdateManager;
 import cpw.mods.fml.common.Mod;
@@ -13,10 +14,10 @@ import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
 
 @Mod(modid = FlatBedrockCore.modId, version = FlatBedrockCore.version, name = FlatBedrockCore.modName, dependencies = "required-after:PowerCrystalsCore")
-public class FlatBedrockCore implements IUpdateableMod
+public class FlatBedrockCore extends BaseMod implements IUpdateableMod
 {
 	public static final String modId = "FlatBedrock";
-	public static final String version = "1.4.6R1.0.4B1";
+	public static final String version = "1.4.6R1.1.0RC1";
 	public static final String modName = "FlatBedrock";
 	public static boolean doFlatten = false;
 	
@@ -30,7 +31,9 @@ public class FlatBedrockCore implements IUpdateableMod
 	@Mod.PreInit
 	public void preload(FMLPreInitializationEvent e)
 	{
-		Configuration config = new Configuration(e.getSuggestedConfigurationFile());
+		setConfigFolderBase(e.getModConfigurationDirectory());
+		
+		Configuration config = new Configuration(getCommonConfig());
 		config.load();
 		Property doGenerate;
 		doGenerate = config.get("WorldGen","reallyFlattenBedrock",true);
@@ -60,12 +63,6 @@ public class FlatBedrockCore implements IUpdateableMod
 	public String getModName()
 	{
 		return modName;
-	}
-
-	@Override
-	public String getModFolder()
-	{
-		return modId;
 	}
 
 	@Override
