@@ -17,7 +17,7 @@ import cpw.mods.fml.relauncher.Side;
 public class FlatBedrockCore extends BaseMod implements IUpdateableMod
 {
 	public static final String modId = "FlatBedrock";
-	public static final String version = "1.5.1R1.1.0RC2";
+	public static final String version = "1.5.1R1.1.0";
 	public static final String modName = "FlatBedrock";
 	public static boolean doFlatten = false;
 	
